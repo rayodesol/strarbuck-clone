@@ -1,3 +1,69 @@
+/* ICONS */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* COMMON */
 body {
-  color: orange;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+a {
+  /* a태그에 밑줄 쳐지는거 없애기 */
+  text-decoration: none;
+}
+
+img {
+  /* 이미지 아래 베이스라인에 맞게 생기는 밑칸 없애기 */
+  display: block;
+}
+
+.inner {
+  position: relative;
+  width: 1100px;
+  height: 120px;
+  /* 수평 중앙정렬 */
+  margin: 0 auto;
+  background-color: orange;
+}
+
+/* HEADER */
+header {
+  background-color: skyblue;
+}
+header .inner {
+}
+header .inner .logo {
+  position: absolute;
+  /* top: 50%;
+  transform: translateY(-50%); */
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  width: 75px;
+}
+header .sub-menu {
+}
+header .sub-menu ul.menu {
+}
+header .sub-menu ul.menu li {
+}
+header .sub-menu ul.menu li a {
+}
+header .sub-menu ul.menu li a:hover {
+}
+header .sub-menu .search {
+}
+header .sub-menu .search input {
+}
+header .sub-menu .search input:focus {
+}
+header .sub-menu .search .material-symbols-outlined {
 }
