@@ -26,17 +26,25 @@ img {
   position: relative;
   width: 1100px;
   height: 120px;
+
   /* 수평 중앙정렬 */
   margin: 0 auto;
-  background-color: orange;
 }
 
 /* HEADER */
 header {
-  background-color: skyblue;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #f6f5ef;
+  border-top: 2px solid black;
+  border-bottom: 1px solid #eae7e2;
+  z-index: 1;
 }
-header .inner {
-}
+
+/* header .inner {
+} */
+
 header .inner .logo {
   position: absolute;
   /* top: 50%;
@@ -45,25 +53,104 @@ header .inner .logo {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  /* right: 0; */
   height: 75px;
   width: 75px;
 }
-header .sub-menu {
+
+/* Sub menu */
+header .inner .sub-menu {
+  /* 폰트 바꾸려면 여기에 font-familty 추가 */
+
+  /* ul과 search 가로 배치 */
+  display: flex;
+
+  /* 서브 메뉴 위치 지정 */
+  position: absolute;
+  top: 6px;
+  right: 50px;
 }
-header .sub-menu ul.menu {
+
+header .inner .sub-menu .sub-menu__menu {
+  /* BEM식 이름 표기 */
+
+  /* li 간 가로 배치 */
+  display: flex;
 }
-header .sub-menu ul.menu li {
+
+/* header .inner .sub-menu .sub-menu__menu > li {
+} */
+header .inner .sub-menu .sub-menu__menu > li:not(:first-child)::before {
+  /* 'Sign in' 앞부분에 | 안 들어가게 */
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  /* 방법 1 */
+  /* content: "|";
+  font-size: 13px;
+  color: #e5e5e5; */
+
+  /* 방법 2 */
+  content: "";
+  display: block;
+  width: 1px;
+  height: 13px;
+  background-color: #e5e5e5;
 }
-header .sub-menu ul.menu li a {
+
+header .inner .sub-menu .sub-menu__menu > li > a {
+  /* 인라인요소를 블록으로 */
+  display: block;
+
+  font-size: 13px;
+  padding: 10px 15px;
+  color: #656565;
+
+  /* 링크 밑줄 없애기 */
+  text-decoration: none;
 }
-header .sub-menu ul.menu li a:hover {
+header .inner .sub-menu .sub-menu__menu > li > a:hover {
+  text-decoration: underline;
 }
-header .sub-menu .search {
+
+header .inner .sub-menu .search {
+  /* .material-symbols-outlined 에 absolute 하기 위해 */
+  position: relative;
 }
-header .sub-menu .search input {
+
+header .inner .sub-menu .search > input {
+  /* 검색창 사이즈 조절 */
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  transition: width 0.4s;
 }
 header .sub-menu .search input:focus {
+  width: 190px;
 }
-header .sub-menu .search .material-symbols-outlined {
+
+header .inner .sub-menu .search > .material-symbols-outlined {
+  position: absolute;
+  margin: auto;
+  right: 3px;
+  top: 0;
+  bottom: 0;
+  height: 24px;
+}
+
+/* MAIN MENU */
+header .inner .main-menu {
+}
+
+header .inner .main-menu .item {
+}
+
+header .inner .main-menu .item .item__name {
 }
