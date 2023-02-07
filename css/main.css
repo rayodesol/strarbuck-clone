@@ -25,10 +25,34 @@ img {
 .inner {
   position: relative;
   width: 1100px;
-  height: 120px;
 
   /* 수평 중앙정렬 */
   margin: 0 auto;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.btn--light-green {
+  color: #076443;
+  border-color: #076443;
+  transition: 0.6s;
+}
+.btn--light-green:hover {
+  background-color: #076443;
+  border-color: black;
+  color: white;
+  text-decoration: underline;
 }
 
 /* HEADER */
@@ -42,8 +66,10 @@ header {
   z-index: 1;
 }
 
-/* header .inner {
-} */
+header > .inner {
+  /* > 가 아니면 header 아래 모든 .inner에게 영향 주기 때문에, 직계에만 */
+  height: 120px;
+}
 
 header .inner .logo {
   position: absolute;
@@ -173,15 +199,460 @@ header .inner .main-menu .item:hover .item__name {
 }
 
 header .inner .main-menu .item .item__contents {
+  /* 모든 메뉴가 같은 위치, 같은 크기로 겹침. 평소엔 안 보이게. */
   display: none;
+
+  /* 메뉴 내려오는 애니메이션 비슷하게 구현. display: none; 삭제 */
+  /* transform: scaleY(0);
+  transition: 0.5s;
+  transform-origin: center top; */
+
+  /* 뷰포트 기준 가로 전체에 뜨기 위해 */
   position: fixed;
+  /* 뷰포트 기준 왼쪽에 붙이게 -> 가득 채워짐 */
   left: 0;
+
   top: 120px; /* 헤더 크기가 120px으로 정해져 있으므로. 혹시 생길 오류를 위해. */
+
+  /* 뷰포트 가로 전체에 뜨게 하기 위해. absolute 이면 부모 위치 이후로만 꽉 참. */
   width: 100%;
-  height: 100px;
-  background-color: orange;
 }
 
 header .inner .main-menu .item:hover .item__contents {
+  /* .item__contents 가 자식이므로 여기에 hover 시에도 메뉴창 뜬 상태 유지 */
+  /* hover 시에만 해당 메뉴 뜨게 */
+  display: block;
+
+  /* 애니메이션 비슷하게 구현 */
+  /* transform: scale(1); */
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu {
+  background-color: #2c2a29;
+  padding: 20px 0px;
+}
+
+header .inner .main-menu .item .item__contents .item__contents__menu .inner {
+  /* 가로 배치 */
+  display: flex;
+}
+
+header
+  .inner
+  .main-menu
+  .item
+  .item__contents
+  .item__contents__menu
+  .inner
+  > li {
+  width: 200px;
+  padding-right: 20px;
+}
+
+header
+  .inner
+  .main-menu
+  .item
+  .item__contents
+  .item__contents__menu
+  .inner
+  > li
+  > a {
+  /* 마진 or 패딩 부여를 위해 */
+  display: block;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+header
+  .inner
+  .main-menu
+  .item
+  .item__contents
+  .item__contents__menu
+  .inner
+  > li
+  > a:hover {
+  text-decoration: underline;
+  /* <a> 라서 cursor: pointer; 필요 없음 */
+}
+
+/* header
+  .inner
+  .main-menu
+  .item
+  .item__contents
+  .item__contents__menu
+  .inner
+  > li
+  > ul {
+} */
+
+header
+  .inner
+  .main-menu
+  .item
+  .item__contents
+  .item__contents__menu
+  .inner
+  > li
+  > ul
+  > li {
+  color: #999;
+  font-size: 12px;
+  margin: 5px 0;
+}
+header
+  .inner
+  .main-menu
+  .item
+  .item__contents
+  .item__contents__menu
+  .inner
+  > li
+  > ul
+  > li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* BADGES */
+header .badges {
+  position: absolute;
+  top: 150px;
+  /* right: 10px; */
+  left: calc(1100px + (100vw - 1100px) / 2);
+}
+
+header .badges .badge {
+  cursor: pointer;
+}
+
+header .badges .badge img {
+  width: 140px;
+}
+
+@media screen and (max-width: 1400px) {
+  header .badges {
+    left: calc(100vw - 150px);
+  }
+}
+
+/* VISUAL */
+.visual {
+  position: relative;
+
+  /* 헤더가 fixed로 떠 있기에 헤더만큼 윗 빈 부분을 만듦. */
+  margin-top: 120px;
+  /* 눈에 보이게만 120px 이동이고, 차지하는 공간은 그대로
+  top: 120px; */
+
+  background-image: url("../images/visual_bg.jpg");
+  /* background-size: contain; */
+  /* ? 때문에 윗공간이 뜸??? */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 뷰포트 크기 상관없이 백그라운드 이미지가 너비 꽉 차게 */
+  background-size: 106% 100%;
+}
+
+.visual .inner {
+  position: relative;
+  height: 646px;
+}
+
+.visual .inner .slogan {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+
+  /* 너비 값이 있어야 다음 줄로 넘어감 */
+  width: 340px;
+
+  justify-content: center;
+
+  /* cf) '자세히 보기' 버튼 뷰포트 크기 상관없이 중앙정렬
+  .visual .inner .slogan .btn {
+    position: absolute; top: 250px; } 와 함께 */
+  /* justify-content: space-between;
+  flex-direction: column; */
+
+  top: 180px;
+  left: -130px;
+}
+
+.visual .inner .slogan img {
+  display: block;
+  width: 340px;
+}
+
+.visual .inner .slogan .btn {
+  position: absolute;
+
+  /* 일단 위치 조정 - 아래로 밀기 */
+  top: 250px;
+
+  /* 다른 방법 - absolute 설정 없이 */
+  /* margin-top: 50px; */
+}
+
+.visual .inner img {
+  position: absolute;
+}
+
+.visual .inner .item-1 {
+  /* position: absolute; */
+  width: 290px;
+  top: 120px;
+  left: 340px;
+}
+
+.visual .inner .item-2 {
+  /* position: absolute; */
+  width: 310px;
+  top: 208px;
+  left: 538px;
+}
+
+.visual .inner .item-3 {
+  /* position: absolute; */
+  width: 310px;
+  top: 162px;
+  left: 762px;
+}
+
+/* NOTICE */
+.notice {
+  /* 문서 흐름을 따름 */
+  position: relative;
+}
+
+.notice .notice-line {
+  position: relative;
+
+  /* 글자 속성은 상속됨 */
+  font-weight: 700;
+}
+
+.notice .notice-line .bg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #111111;
+}
+
+.notice .notice-line .bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner {
+  height: 62px;
+  display: flex;
+}
+
+.notice .notice-line .inner .inner__left {
+  /* 부모인 .inner 안에 자연스럽게 쌓이게 */
+  position: relative;
+  width: 60%;
+  height: 100%;
+  background-color: #111111;
+
+  /* 수직 중앙정렬을 위한 flex */
+  display: flex;
+  align-items: center;
+
+  color: white;
+}
+
+.notice .notice-line .inner .inner__left h1 {
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+}
+
+.notice .notice-line .inner .inner__left div {
+  position: absolute;
+  /* h1과 떨어지게 */
+  left: 80px;
+  font-size: 14px;
+}
+
+.notice .notice-line .inner .inner__left a {
+  position: absolute;
+  right: 20px;
+  color: white;
+}
+
+.notice .notice-line .inner .inner__left a span {
+  font-size: 36px;
+
+  /* 기준점 보다 떠보인다?! -> 글자의 아래선에 맞춰 */
+  /* 방법1 */
+  vertical-align: bottom;
+  /* 방법2 */
+  /* display: block; */
+}
+
+.notice .notice-line .inner .inner__right {
+  position: relative;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #f6f5ef;
+}
+
+.notice .notice-line .inner .inner__right h1 {
+  position: absolute;
+  right: 120px;
+  font-size: 16px;
+}
+
+.notice .notice-line .inner .inner__right a {
+  position: absolute;
+  right: 20px;
+  color: black;
+}
+
+.notice .notice-line .inner .inner__right a span {
+  font-size: 36px;
   display: block;
 }
+
+/* REWARDS */
+.rewards {
+  position: relative;
+  background-color: #1e3932;
+}
+
+.rewards .inner {
+  position: relative;
+  padding: 30px 0 40px 0;
+
+  /* 가로로 배치 */
+  display: flex;
+}
+
+.rewards .inner .rewards__logo {
+  /* flex 부분 나중에 알려 줄 것임!!!!! */
+
+  display: flex;
+  width: 260px;
+  /* flex-basis: 260px; */
+
+  /* 수평 중앙정렬 */
+  justify-content: center;
+
+  /* 로고 찌그러지는거 안 됨 */
+  align-items: center;
+}
+
+.rewards .inner .rewards__logo img {
+  /* 베이스라인에 영향 안 받게 */
+  display: block;
+
+  width: 176px;
+}
+
+.rewards .inner .rewards__items {
+  flex-grow: 1;
+  padding-right: 40px;
+}
+
+.rewards .inner .rewards__items .rewards__items__register {
+  /* 버튼들 위치 선정을 위해 기준이 됨 */
+  position: relative;
+  padding-bottom: 12px;
+
+  /* 얇은 선은 border-bottom 이 아닌 box-shadow 로 */
+  /* border-bottom: 1px solid #c8c8c8; */
+  box-shadow: 0 0.5px #c8c8c8;
+}
+
+.rewards .inner .rewards__items .rewards__items__register p {
+  display: block;
+  font-size: 17px;
+  color: white;
+}
+
+.rewards .inner .rewards__items .rewards__items__register p.subject {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+}
+
+.rewards
+  .inner
+  .rewards__items
+  .rewards__items__register
+  .buttons
+  .btn--register {
+  background-color: #00704a;
+  border-color: #00704a;
+  color: white;
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+.rewards .inner .rewards__items .rewards__items__register .buttons .btn--login,
+.rewards .inner .rewards__items .rewards__items__card .buttons .btn--login {
+  border-color: white;
+  color: white;
+  font-weight: 700;
+}
+
+.rewards
+  .inner
+  .rewards__items
+  .rewards__items__register
+  .buttons
+  .btn--register:hover,
+.rewards
+  .inner
+  .rewards__items
+  .rewards__items__register
+  .buttons
+  .btn--login:hover,
+.rewards
+  .inner
+  .rewards__items
+  .rewards__items__card
+  .buttons
+  .btn--login:hover {
+  text-decoration: underline;
+}
+
+.rewards .inner .rewards__items .rewards__items__card {
+  position: relative;
+}
+
+.rewards .inner .rewards__items .rewards__items__card p {
+  display: block;
+  font-size: 14px;
+  color: white;
+  margin-top: 20px;
+}
+
+.rewards .inner .rewards__items .rewards__items__card .buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+/* .rewards .inner .rewards__items .rewards__items__card .buttons .btn--login {
+} */
