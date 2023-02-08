@@ -55,6 +55,50 @@ img {
   text-decoration: underline;
 }
 
+.btn--brown {
+  color: #633510;
+  border-color: #633510;
+  transition: 0.6s;
+}
+.btn--brown:hover {
+  background-color: #633510;
+  color: white;
+  text-decoration: underline;
+}
+
+.btn--gold {
+  border-color: #966932;
+  color: #966932;
+  transition: 0.6s;
+}
+.btn--gold:hover {
+  background-color: #966932;
+  color: white;
+  text-decoration: underline;
+}
+
+.btn--white {
+  border-color: #fff;
+  color: #fff;
+  transition: 0.6s;
+}
+.btn--white:hover {
+  background-color: #fff;
+  color: black;
+  text-decoration: underline;
+}
+
+.btn--black {
+  border-color: #000;
+  color: #000;
+}
+.btn--black:hover {
+  background-color: #000;
+  color: white;
+  text-decoration: underline;
+  /* transition: 0.6s; */
+}
+
 /* HEADER */
 header {
   position: fixed;
@@ -320,6 +364,7 @@ header
 
 /* BADGES */
 header .badges {
+  /* absolute 이지만 fixed 처럼 움직임 */
   position: absolute;
   top: 150px;
   /* right: 10px; */
@@ -654,5 +699,450 @@ header .badges .badge img {
   bottom: 0;
 }
 
-/* .rewards .inner .rewards__items .rewards__items__card .buttons .btn--login {
+/* ELSALVADOR */
+.elsalvador {
+  position: relative;
+
+  /* 너비 크기는 부모에서 받아올 것임 */
+  height: 570px;
+
+  background-image: url("../images/elsalvador_bg.jpg");
+
+  /* 긴 축 기준 105%로 늘려서 */
+  /* background-size: 105%; */
+  background-size: cover;
+
+  /* background-size 때문에 넘치고 밀리는 것 조정 */
+  background-position: center;
+  overflow: hidden;
+}
+
+.elsalvador .inner {
+  /* 내 코드 - 방법1 */
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px; */
+  /* margin-top: calc((100vh - 450px) / 2); */
+
+  /* 내 코드 - 방법2 */
+  /* position: absolute;
+  display: flex;
+  align-items: center;
+  top: 50px;
+  left: 500px; */
+
+  position: relative;
+
+  /* 부모로부터 받아옴   이거 왜 씀??? */
+  /* height: 100%; */
+}
+
+.elsalvador .inner img.elsalvador__item {
+  /* 내 코드 - 방법1 */
+  /* height: 450px; */
+
+  position: absolute;
+  width: 310px;
+  top: 70px;
+  left: 110px;
+
+  /* 애니메이션 */
+  transform: translateX(-700px);
+  opacity: 0;
+  transition: 2.5s;
+}
+
+.elsalvador .inner .elsalvador__contents {
+  /* 내 코드 - 방법1 */
+  /* margin-left: 230px; */
+
+  /* 내 코드 - 방법2 */
+  /* margin-left: 200px; */
+
+  position: absolute;
+  width: 339px;
+  top: 180px;
+  right: 140px;
+
+  /* 애니메이션 - 바깥으로 날려놓고, :active 시 원래 자리(transform: translate(0);)로 돌아오기 */
+  transform: translateX(900px);
+  opacity: 0;
+  transition: 2.5s;
+}
+.elsalvador:active .inner img.elsalvador__item,
+.elsalvador:active .inner .elsalvador__contents {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* .elsalvador .inner .elsalvador__contents .item-text {
 } */
+
+.elsalvador .inner .elsalvador__contents .btn.btn--brown {
+  /* 내 코드 - 방법1 */
+  /* margin-top: 50px; */
+
+  /* 내 코드 - 방법2 */
+  /* margin-top: 40px; */
+
+  margin-top: 40px;
+}
+
+/* ETHIOPIA */
+.ethiopia {
+  position: relative;
+  height: 400px;
+  background-image: url("../images/ethiopia_bg.png");
+  /* 사이즈가 맞아서 따로 설정 안함 */
+  overflow: hidden;
+}
+.ethiopia::before {
+  content: "";
+  /* 원래 content는 인라인 요소인데, position: absolute; 으로 블록 요소로 바뀜 */
+  position: absolute;
+  bottom: 0;
+  left: -50px;
+  width: 425px;
+  height: 404px;
+  background-image: url("../images/ethiopia_before.png");
+
+  /* 특정 공간 가득 채우게. 긴 축에 맞추는. */
+  background-size: cover;
+
+  /* 반복 안 되게 */
+  background-repeat: no-repeat;
+
+  /* 애니메이션을 위해 일단 안 보이게 */
+  opacity: 0;
+}
+.ethiopia::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 361px;
+  height: 404px;
+  background-image: url("../images/ethiopia_before.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+.ethiopia:active::before,
+.ethiopia:active::after {
+  transition: 0.5s;
+  opacity: 1;
+}
+
+/* .ethiopia .inner {
+} */
+
+.ethiopia .inner .ethiopia__contents {
+  position: absolute;
+  width: 496px;
+  left: 0;
+  top: 120px;
+}
+
+/* 이미지가 가로가 길게 투명 배경이 있음 */
+.ethiopia .inner .ethiopia__item {
+  position: absolute;
+  left: -500px;
+  opacity: 0;
+}
+.ethiopia:active .inner .ethiopia__item {
+  transition: 1.5s;
+  transition-delay: 0.8s;
+  opacity: 1;
+}
+
+.ethiopia .inner .btn.btn--gold {
+  position: absolute;
+  left: 260px;
+  top: 270px;
+}
+
+/* FAVORITE */
+/* .favorite {
+  position: relative;
+  height: 800px;
+  background-image: url("../images/fav_bg.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.favorite .inner {
+  position: relative;
+} */
+
+.favorite .inner .favorite__contents {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 362px;
+}
+
+.favorite .inner .favorite__contents .favorite__title {
+  position: absolute;
+  /* display: block; */
+  right: 0;
+  top: 0;
+  width: 258px;
+
+  transform: translateX(-700px);
+  /* opacity: 0; */
+  transition: 1.5s;
+}
+
+.favorite .inner .favorite__contents .favorite__text {
+  position: absolute;
+  right: 0;
+  top: 250px;
+  width: 362px;
+
+  transform: translateX(-700px);
+  transition: 1.5s;
+  transition-delay: 0.1s;
+}
+
+.favorite:active .inner .favorite__contents .favorite__title,
+.favorite:active .inner .favorite__contents .favorite__text {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* .favorite .inner .favorite__contents .btn.btn--white {
+  position: absolute;
+  right: 0;
+  top: 460px;
+} */
+
+.favorite .inner .favorite__item {
+  position: absolute;
+  width: 912px;
+  left: 450px;
+  top: 90px;
+}
+
+/* FAVORITE _ 강사님 */
+.favorite {
+  position: relative;
+  height: 800px;
+  background-image: url("../images/fav_bg.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* .favorite .inner {
+} */
+
+.favorite .inner .favorite__text-1 {
+  position: absolute;
+  width: 258px;
+  top: 120px;
+  left: 108px;
+
+  /* 애니메이션 */
+  transform: translateX(-700px);
+  opacity: 0;
+  transition: 2s;
+}
+
+.favorite .inner .favorite__text-2 {
+  position: absolute;
+  width: 362px;
+  top: 370px;
+
+  /* 애니메이션 */
+  transform: translateX(-700px);
+  opacity: 0;
+  transition: 2.5s;
+}
+
+/* 애니메이션 */
+.favorite:active .inner .favorite__text-1,
+.favorite:active .inner .favorite__text-2 {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.favorite .inner .favorite__img {
+  position: absolute;
+  width: 912px;
+  top: 100px;
+  right: -260px;
+}
+
+.favorite .inner .btn.btn--white {
+  position: absolute;
+  top: 580px;
+  left: 238px;
+}
+
+/* MAGAZINE */
+.magazine {
+  position: relative;
+  height: 400px;
+  background-image: url("../images/magazine_bg.png");
+  background-size: cover;
+  background-position: center 50px;
+  background-repeat: no-repeat;
+
+  /* 바깥으로 삐져나가는 것, 침법하는 것을 방지 */
+  overflow: hidden;
+
+  /* 내 코드 */
+  /* background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom; */
+}
+
+/* .magazine .inner {
+} */
+
+.magazine .inner .magazine__text {
+  position: absolute;
+  width: 588px;
+  top: 135px;
+  left: 60px;
+}
+
+.magazine .inner .magazine__img {
+  position: absolute;
+  width: 348px;
+  top: 0;
+  right: 50px;
+  opacity: 0;
+
+  /* 클릭 했다 안 할 때 다 적용되게 여기에 위치 */
+  transition: 1.5s;
+}
+
+.magazine:active .inner .magazine__img {
+  opacity: 1;
+}
+
+.magazine .inner .btn.btn--black {
+  position: absolute;
+  top: 270px;
+  left: 295px;
+}
+
+/* .magazine .inner .magazine__text,
+.magazine .inner .btn.btn--black
+이 둘을 하나로 묶은 뒤,
+버튼을 가운데 정렬하는 방법도 있음.
+margin: auto;
+left, right 0 */
+
+/* STORE */
+.store {
+  position: relative;
+  height: 400px;
+  background-image: url("../images/store_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.store .inner {
+  /* 높이 값을 안 주면 높이 값이 auto.
+  자식들이 다 absolute여서 다 붕 떠 있음.
+  inner의 높이가 0 */
+  height: 400px;
+}
+
+.store .inner .store__text-1 {
+  position: absolute;
+  width: 385px;
+  top: 100px;
+  right: 50px;
+
+  /* 애니메이션 */
+  transform: translateX(800px);
+  transition: 2s;
+}
+
+.store .inner .store__text-2 {
+  position: absolute;
+  width: 366px;
+  top: 170px;
+  right: 69px;
+  transform: translateX(800px);
+  transition: 2.5s;
+}
+
+.store .inner .btn.btn--black {
+  position: absolute;
+  top: 290px;
+  right: 330px;
+  transform: translateX(800px);
+
+  /* hover 시 버튼 색 변하는 것까지 3초가 됨
+  transition: 3s; */
+}
+
+.store:active .inner .store__text-1,
+.store:active .inner .store__text-2 {
+  transform: translateX(0);
+}
+
+.store:active .inner .btn.btn--black {
+  transform: translateX(0);
+
+  /* 이동하는 것만 3초, hover 시 변화는 0.6초 */
+  transition: transform 3s, background-color 0.6s, color 0.6s,
+    text-decoration 0.6s;
+}
+
+.store .inner .store__img-1 {
+  position: absolute;
+  width: 366px;
+  top: 0;
+  left: 70px;
+
+  /* 애니메이션 */
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.store .inner .store__img-2 {
+  position: absolute;
+  width: 228px;
+  top: 150px;
+  left: 300px;
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.store .inner .store__img-3 {
+  position: absolute;
+  width: 348px;
+
+  /* 이미지가 커서 .store 보다 위로 올려 잘라내기. overflow: hidden; 때문에 안 보임. */
+  top: -60px;
+
+  left: 430px;
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.store .inner .store__img-4 {
+  position: absolute;
+  width: 230px;
+  right: -70px;
+  bottom: 0px;
+  opacity: 0;
+  transition: 1.5s;
+}
+
+.store:active .inner .store__img-1,
+.store:active .inner .store__img-2,
+.store:active .inner .store__img-3,
+.store:active .inner .store__img-4 {
+  opacity: 1;
+}
