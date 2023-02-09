@@ -1146,3 +1146,145 @@ left, right 0 */
 .store:active .inner .store__img-4 {
   opacity: 1;
 }
+
+/* FOOTER */
+footer {
+  position: relative;
+  background-color: #2c2a29;
+  /* 컨텐츠 높이만큼 가져가는 것이 자연스러우므로 height 값 안 씀. 백그라운드 이미지를 쓰는 것도 아니므로 */
+  padding: 30px 0;
+}
+
+/* footer .inner {
+} */
+
+/* FOOTER MENU */
+footer .inner .footer__menu {
+  display: flex;
+}
+
+footer .inner .footer__menu .left {
+  width: 90%;
+}
+
+footer .inner .footer__menu .left .menu {
+  display: flex;
+}
+
+footer .inner .footer__menu .left .menu > li {
+  /* 부모인 footer .inner .footer__menu .left .menu 를 1/5로 나눠 쓰는 효과 */
+  width: 20%;
+}
+
+/* footer .inner .footer__menu .left .menu > li > ul {
+} */
+
+footer .inner .footer__menu .left .menu > li > ul > a {
+  /* a태그는 인라인요소라 마진, 패딩이 먹지 않음 */
+  display: block;
+  font-size: 14px;
+  color: white;
+  margin: 10px 0;
+}
+
+footer .inner .footer__menu .left .menu > li > ul > li {
+  font-size: 12px;
+  color: white;
+  margin: 7px 0;
+  cursor: pointer;
+}
+
+footer .inner .footer__menu .left .menu > li > ul > a:hover,
+footer .inner .footer__menu .left .menu > li > ul > li:hover {
+  text-decoration: underline;
+}
+
+footer .inner .footer__menu .right {
+  width: 10%;
+
+  /* 로고 오른쪽 위에 위치 시키기 */
+  /* 방법 1 */
+  /* position: relative; */
+
+  /* 방법 2 */
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: flex-start; */
+  /* 방법 2 의 경우, 이미지가 늘어나는데
+  이는 display: flex; 의 기본값이 align-items: stretch 이기 때문
+  align-items: flex-start; 를 설정해 늘어나지 않고, 시작점에 위치시키기 */
+}
+
+footer .inner .footer__menu .right img {
+  /* 방법 1 */
+  /* position: absolute;
+  right: 0; */
+
+  /* 방법 3 */
+  /* 자신이 존재할 수 있는 컨테이너 내부에서의 위치.
+  안에 요소가 많다면, 잘 작동 안 할 수도.
+  글과 사진이 겹쳐 있는 경우에 많이 사용. 요즘은 많이 사용하지 않음. */
+  float: right;
+}
+
+/* FOOTER SUB-MENU */
+footer .inner .footer__sub-menu {
+  padding: 30px 50px 10px 50px;
+}
+
+footer .inner .footer__sub-menu > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .inner .footer__sub-menu > ul > li {
+  font-size: 12px;
+  color: #ccc;
+}
+
+footer .inner .footer__sub-menu > ul > li.contour {
+  /* 선택자 우선순위에 따라 footer .inner .footer__sub-menu > ul > li 보다 더 우선 */
+  color: #999;
+}
+
+footer .inner .footer__sub-menu > ul > li > a {
+  color: #ccc;
+}
+footer .inner .footer__sub-menu > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+footer .inner .footer__sub-menu > ul > li:first-child a {
+  color: #00b050;
+}
+
+/* FOOTER BTN */
+footer .inner .footer__btn {
+  /* 인라인 블록 요소 이므로 가운데 정렬로 간단히 */
+  text-align: center;
+}
+
+footer .inner .footer__btn .btn {
+  /* 인라인 블록 요소 이므로 margin 이 먹힘 */
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+footer .inner .footer__btn .btn:hover {
+  /* 배경 투명하게 */
+  background-color: transparent;
+  text-decoration: underline;
+  color: white;
+}
+
+/* FOOTER COPYLIGHT */
+footer .inner .footer__copylight {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+footer .inner .footer__copylight p {
+  line-height: 30px;
+}
