@@ -53,9 +53,6 @@
       href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
     />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="./css/main.css" />
-
     <!-- JAVASCRIPT -->
     <!-- SWIPER -->
     <link
@@ -64,7 +61,11 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-    <!-- MAIN JS -->
+    <!-- swiper CSS, JS 다음에 내 CSS, JS 파일을 위치시켜 수정해서 사용할 수 있게 -->
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- MAIN JAVASCRIPT-->
     <script defer src="./js/main.js"></script>
   </head>
 
@@ -448,18 +449,58 @@
         <div class="inner">
           <div class="inner__left">
             <h1>공지사항</h1>
-            <div>탄소 중립 포인트제 실천 안내</div>
-            <a href="#">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">탄소중립실천포인트제 도입 안내</div>
+                <div class="swiper-slide">
+                  영상정보처리기기 운영방침 / 위치정보 이용약관 /
+                  개인정보처리방침 이용약관 개정 안내
+                </div>
+                <div class="swiper-slide">시스템 개선 및 서비스 점검 안내</div>
+                <div class="swiper-slide">
+                  설 연휴 스타벅스 딜리버리 운영 안내
+                </div>
+                <div class="swiper-slide">
+                  스타벅스 카드 온라인 재충전 / e-Gift Card 구매 가능 금액 안내
+                </div>
+              </div>
+            </div>
+            <!-- onclick 을 권장하지만, 이렇게도 가능  -->
+            <!-- <a href="javascript:controlAutoPlay();"> -->
+            <a href="javascript:void(0);" onclick="controlAutoPlay()">
               <span class="material-symbols-outlined"> add_circle </span>
             </a>
           </div>
           <div class="inner__right">
             <h1>스타벅스 프로모션</h1>
-            <a href="#">
-              <span class="material-symbols-outlined"> check_circle </span>
+            <a href="javascript:void(0);" class="toggle-promotion">
+              <span class="material-symbols-outlined">
+                expand_circle_down
+              </span>
             </a>
           </div>
         </div>
+      </div>
+      <div class="promotion hide">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/promotion1.jpg" alt="스타벅스 프로모션 1" />
+              <a href="#" class="btn btn--black">자세히 보기</a>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/promotion2.jpg" alt="스타벅스 프로모션 2" />
+              <a href="#" class="btn btn--black">자세히 보기</a>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/promotion3.jpg" alt="스타벅스 프로모션 3" />
+              <a href="#" class="btn btn--black">자세히 보기</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </section>
 

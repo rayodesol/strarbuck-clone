@@ -427,6 +427,13 @@ header .badges .badge img {
 
   top: 180px;
   left: -130px;
+
+  opacity: 0;
+}
+
+.visual.animate .inner .slogan {
+  opacity: 1;
+  transition: 0.4s;
 }
 
 .visual .inner .slogan img {
@@ -453,6 +460,13 @@ header .badges .badge img {
   width: 290px;
   top: 120px;
   left: 340px;
+  opacity: 0;
+}
+
+.visual.animate .inner .item-1 {
+  transition: 0.4s;
+  opacity: 1;
+  transition-delay: 0.4s;
 }
 
 .visual .inner .item-2 {
@@ -460,6 +474,13 @@ header .badges .badge img {
   width: 310px;
   top: 208px;
   left: 538px;
+  opacity: 0;
+}
+
+.visual.animate .inner .item-2 {
+  transition: 0.8s;
+  opacity: 1;
+  transition-delay: 0.8s;
 }
 
 .visual .inner .item-3 {
@@ -467,6 +488,13 @@ header .badges .badge img {
   width: 310px;
   top: 162px;
   left: 762px;
+  opacity: 0;
+}
+
+.visual.animate .inner .item-3 {
+  transition: 1.2s;
+  opacity: 1;
+  transition-delay: 1.2s;
 }
 
 /* NOTICE */
@@ -525,11 +553,22 @@ header .badges .badge img {
   font-size: 16px;
 }
 
-.notice .notice-line .inner .inner__left div {
+.notice .notice-line .inner .inner__left .swiper {
   position: absolute;
+
+  /* swiper 높이 설정 */
+  height: 62px;
+
   /* h1과 떨어지게 */
   left: 80px;
   font-size: 14px;
+}
+
+.notice .notice-line .inner .inner__left .swiper .swiper-wrapper .swiper-slide {
+  height: 62px;
+
+  /* 높이(수직) 중앙정렬 */
+  line-height: 62px;
 }
 
 .notice .notice-line .inner .inner__left a {
@@ -567,11 +606,130 @@ header .badges .badge img {
   position: absolute;
   right: 20px;
   color: black;
+  transition: 0.4s;
+}
+
+.notice .notice-line .inner .inner__right a.show {
+  transform: rotate(180deg);
 }
 
 .notice .notice-line .inner .inner__right a span {
   font-size: 36px;
   display: block;
+}
+
+/* PROMOTION */
+.notice .promotion {
+  position: relative;
+  height: 658px;
+  background-color: #f6f5ef;
+
+  /* 좌우 스크롤 생기지 않게 */
+  overflow: hidden;
+
+  transition: height 0.4s;
+}
+
+.notice .promotion.hide {
+  height: 0px;
+}
+
+.notice .promotion .swiper {
+  position: absolute;
+  /* 사진 819px 3장 + 간격 10px 2번 */
+  width: calc(819px * 3 + 20px);
+
+  height: 553px;
+  text-align: center;
+
+  /* 중앙정렬 - left, translateX */
+  /* 부모요소의 50% */
+  left: 50%;
+
+  /* 자신 크기의 50% */
+  transform: translateX(-50%);
+
+  top: 40px;
+}
+
+.notice .promotion .swiper .swiper-wrapper {
+}
+
+.notice .promotion .swiper .swiper-wrapper .swiper-slide {
+  /* 메인 슬라이드 외에 투명도 설정 */
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.notice .promotion .swiper .swiper-wrapper .swiper-slide-active {
+  /* 메인 슬라이드만 투명도 0 */
+  opacity: 1;
+}
+
+.notice .promotion .swiper .swiper-wrapper .swiper-slide .btn {
+  position: absolute;
+  width: 150px;
+
+  /* 중앙정렬 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.notice .promotion .swiper-pagination {
+  /* width: 100px;
+  height: 50px;
+  background-color: black; */
+}
+
+.notice .promotion .swiper-button-prev,
+.notice .promotion .swiper-button-next {
+  /* 위치 조정 */
+  position: absolute;
+  top: 250px;
+
+  width: 55px;
+  height: 55px;
+  border: 2px solid #333;
+  color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.notice .promotion .swiper-button-prev::after,
+.notice .promotion .swiper-button-next::after {
+  /* span 태그 이므로 크기는 font-size로 설정 */
+  font-size: 24px;
+}
+
+/* 양쪽 화살표 위치 조정 - 뷰포트 크기 조절에 따라 사라지지 않게 px 이 아닌 % 로 */
+.notice .promotion .swiper-button-prev {
+  left: 50%;
+  transform: translateX(-550px);
+}
+
+.notice .promotion .swiper-button-next {
+  right: 50%;
+  transform: translateX(550px);
+}
+
+.notice .promotion .swiper-pagination {
+}
+
+.notice .promotion .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+}
+
+.notice .promotion .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_on.png");
+
+  /* 가득 채우기 */
+  background-size: cover;
+
+  background-color: transparent;
 }
 
 /* REWARDS */
@@ -770,8 +928,8 @@ header .badges .badge img {
   opacity: 0;
   transition: 2.5s;
 }
-.elsalvador:active .inner img.elsalvador__item,
-.elsalvador:active .inner .elsalvador__contents {
+.elsalvador.animate .inner img.elsalvador__item,
+.elsalvador.animate .inner .elsalvador__contents {
   opacity: 1;
   transform: translate(0);
 }
@@ -828,8 +986,8 @@ header .badges .badge img {
   background-repeat: no-repeat;
   opacity: 0;
 }
-.ethiopia:active::before,
-.ethiopia:active::after {
+.ethiopia.animate::before,
+.ethiopia.animate::after {
   transition: 0.5s;
   opacity: 1;
 }
@@ -850,7 +1008,7 @@ header .badges .badge img {
   left: -500px;
   opacity: 0;
 }
-.ethiopia:active .inner .ethiopia__item {
+.ethiopia.animate .inner .ethiopia__item {
   transition: 1.5s;
   transition-delay: 0.8s;
   opacity: 1;
@@ -908,8 +1066,8 @@ header .badges .badge img {
   transition-delay: 0.1s;
 }
 
-.favorite:active .inner .favorite__contents .favorite__title,
-.favorite:active .inner .favorite__contents .favorite__text {
+.favorite.animate .inner .favorite__contents .favorite__title,
+.favorite.animate .inner .favorite__contents .favorite__text {
   opacity: 1;
   transform: translate(0);
 }
@@ -963,8 +1121,8 @@ header .badges .badge img {
 }
 
 /* 애니메이션 */
-.favorite:active .inner .favorite__text-1,
-.favorite:active .inner .favorite__text-2 {
+.favorite.animate .inner .favorite__text-1,
+.favorite.animate .inner .favorite__text-2 {
   transform: translateX(0);
   opacity: 1;
 }
@@ -1021,7 +1179,7 @@ header .badges .badge img {
   transition: 1.5s;
 }
 
-.magazine:active .inner .magazine__img {
+.magazine.animate .inner .magazine__img {
   opacity: 1;
 }
 
@@ -1086,12 +1244,12 @@ left, right 0 */
   transition: 3s; */
 }
 
-.store:active .inner .store__text-1,
-.store:active .inner .store__text-2 {
+.store.animate .inner .store__text-1,
+.store.animate .inner .store__text-2 {
   transform: translateX(0);
 }
 
-.store:active .inner .btn.btn--black {
+.store.animate .inner .btn.btn--black {
   transform: translateX(0);
 
   /* 이동하는 것만 3초, hover 시 변화는 0.6초 */
@@ -1140,10 +1298,10 @@ left, right 0 */
   transition: 1.5s;
 }
 
-.store:active .inner .store__img-1,
-.store:active .inner .store__img-2,
-.store:active .inner .store__img-3,
-.store:active .inner .store__img-4 {
+.store.animate .inner .store__img-1,
+.store.animate .inner .store__img-2,
+.store.animate .inner .store__img-3,
+.store.animate .inner .store__img-4 {
   opacity: 1;
 }
 
