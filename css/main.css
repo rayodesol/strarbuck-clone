@@ -609,6 +609,7 @@ header .badges .badge img {
   transition: 0.4s;
 }
 
+/* 토글 기능 시 아이콘 회전 */
 .notice .notice-line .inner .inner__right a.show {
   transform: rotate(180deg);
 }
@@ -630,6 +631,7 @@ header .badges .badge img {
   transition: height 0.4s;
 }
 
+/* 토글 기능 위해 숨기기 */
 .notice .promotion.hide {
   height: 0px;
 }

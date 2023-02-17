@@ -112,33 +112,32 @@ window.onload = function () {
 };
 
 // 애니메이션 스크롤 파트
-// 엘살바도르
 window.addEventListener("scroll", function () {
   // 사용자의 스크롤 위치를 출력
   console.log(window.scrollY);
 
   // if (window.scrollY > 125) {
-  //   const elsalvadorSection = document.querySelector(".elsalvador");
+  //   const elsalvadorSection = this.document.querySelector(".elsalvador");
   //   elsalvadorSection.classList.add("animate");
   // }
 
   // if (window.scrollY > 750) {
-  //   const elsalvadorSection = document.querySelector(".ethiopia");
+  //   const elsalvadorSection = this.document.querySelector(".ethiopia");
   //   elsalvadorSection.classList.add("animate");
   // }
 
   // if (window.scrollY > 1250) {
-  //   const elsalvadorSection = document.querySelector(".favorite");
+  //   const elsalvadorSection = this.document.querySelector(".favorite");
   //   elsalvadorSection.classList.add("animate");
   // }
 
   // if (window.scrollY > 2000) {
-  //   const elsalvadorSection = document.querySelector(".magazine");
+  //   const elsalvadorSection = this.document.querySelector(".magazine");
   //   elsalvadorSection.classList.add("animate");
   // }
 
   // if (window.scrollY > 2375) {
-  //   const elsalvadorSection = document.querySelector(".store");
+  //   const elsalvadorSection = this.document.querySelector(".store");
   //   elsalvadorSection.classList.add("animate");
   // }
 
@@ -147,19 +146,21 @@ window.addEventListener("scroll", function () {
   // 메모리 효율상 익명함수 안에서 객체를 계속 생성시키는 것이 아닌 전역변수로 사용하는 것이 좋음.
   if (window.scrollY > 2375) {
     // CSS 에서 .elsalvador.animate 해야
-    const elsalvadorSection = document.querySelector(".store");
+
+    // 여기서 this는 window를 뜻함. 혹시나 document 가 2개 이상일 상황에 대비해서.
+    const elsalvadorSection = this.document.querySelector(".store");
     elsalvadorSection.classList.add("animate");
   } else if (window.scrollY > 2000) {
-    const elsalvadorSection = document.querySelector(".magazine");
+    const elsalvadorSection = this.document.querySelector(".magazine");
     elsalvadorSection.classList.add("animate");
   } else if (window.scrollY > 1250) {
-    const elsalvadorSection = document.querySelector(".favorite");
+    const elsalvadorSection = this.document.querySelector(".favorite");
     elsalvadorSection.classList.add("animate");
   } else if (window.scrollY > 750) {
-    const elsalvadorSection = document.querySelector(".ethiopia");
+    const elsalvadorSection = this.document.querySelector(".ethiopia");
     elsalvadorSection.classList.add("animate");
   } else if (window.scrollY > 125) {
-    const elsalvadorSection = document.querySelector(".elsalvador");
+    const elsalvadorSection = this.document.querySelector(".elsalvador");
     elsalvadorSection.classList.add("animate");
   }
 });
